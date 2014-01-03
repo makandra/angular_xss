@@ -1,0 +1,10 @@
+source 'http://rubygems.org'
+
+gem 'sqlite3'
+gem 'rails', '~>2.3.10'
+gem 'rspec', '<2'
+gem 'rspec-rails', '<2'
+gem 'rspec_candy'
+gem 'haml', '=3.0.25'
+gem 'rails_xss'
+gem 'angular_xss', :path => '../..'
