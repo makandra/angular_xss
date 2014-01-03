@@ -20,8 +20,8 @@ GEM
     activesupport (2.3.18)
     erubis (2.7.0)
     haml (3.0.25)
-    hoe (3.7.3)
-      rake (>= 0.8, < 11.0)
+    hoe (2.8.0)
+      rake (>= 0.8.7)
     rack (1.1.6)
     rails (2.3.18)
       actionmailer (= 2.3.18)
@@ -52,6 +52,7 @@ PLATFORMS
 DEPENDENCIES
   angular_xss!
   haml (= 3.0.25)
+  hoe (= 2.8.0)
   rails (~> 2.3.10)
   rails_xss
   rspec (< 2)
