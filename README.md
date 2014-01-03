@@ -15,7 +15,7 @@ Installation
 
 1. Put this into your Gemfile **after other templating engines** like Haml or Erubis:
 
-    gem 'angular_xss' # put me after Haml, Erubis and other templating engines
+       gem 'angular_xss' # put me after Haml, Erubis and other templating engines
 
 2. Run `bundle install`.
 
