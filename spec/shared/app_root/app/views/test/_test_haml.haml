@@ -6,3 +6,7 @@
 
 %div{:foo => '{{safe}}'.html_safe, :bar => '{{unsafe}}'}
   {{safe}}
+
+-# We can't support Angular interpolations in class and id attributes.
+-# This is a limitation of Haml.
+%div{:class => '{{unsafe}}', :id => '{{unsafe}}'}

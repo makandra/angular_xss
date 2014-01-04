@@ -3,9 +3,9 @@ angular_xss [![Build Status](https://travis-ci.org/makandra/angular_xss.png?bran
 
 When rendering AngularJS templates with a server-side templating engine like ERB or Haml it is easy to introduce XSS vulnerabilities. These vulnerabilities are enabled by AngularJS evaluating user-provided strings containing interpolation symbols (default symbols are `{{` and `}}`).
 
-This gem patches ERB/rails_xss and Haml so Angular interpolation symbols are auto-escaped in unsafe strings. And by auto-escaped we mean replacing `{{` with ` { { `.
+This gem patches ERB/rails_xss and Haml so Angular interpolation symbols are auto-escaped in unsafe strings. And by auto-escaped we mean replacing `{{` with ` { { `. To leave AngularJS interpolation marks unescaped, mark the string as `html_safe`.
 
-**This is an unsatisfactory hack.** A better solution is very much desired, but might not be possible without significant refactoring of AngularJS. See the [related AngularJS issue](https://github.com/angular/angular.js/issues/5601).
+**This is an unsatisfactory hack.** A better solution is very much desired, but is not possible without some changes in AngularJS. See the [related AngularJS issue](https://github.com/angular/angular.js/issues/5601).
 
 
 Installation
@@ -24,9 +24,11 @@ Installation
 4. Mark any string that is allowed to contain Angular expressions as `#html_safe`.
 
 
-Known issues
-------------
-- Requires Haml. Could be refactored to only patch ERB/rails_xss.
+Known limitations
+-----------------
+- Requires Haml. It could be refactored to only patch ERB/rails_xss.
+- When using Haml with angular_xss, you can no longer use interpolation symbols in `class` or `id` attributes,
+  even if the value is marked as `html_safe`. This is a limitation of Haml. Try using `ng-class` instead.
 
 
 Development
