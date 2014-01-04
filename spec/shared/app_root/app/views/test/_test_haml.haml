@@ -10,3 +10,14 @@
 -# We can't support Angular interpolations in class and id attributes.
 -# This is a limitation of Haml.
 %div{:class => '{{unsafe}}', :id => '{{unsafe}}'}
+
+= '{&lcub;unsafe}}'
+= '{&lbrace;unsafe}}'
+= '{&#x7b;unsafe}}'
+= '{&#X7B;unsafe}}'
+= '{&#x000007b;unsafe}}'
+= '{&#x000000000007b;unsafe}}'
+= '{&#123;unsafe}}'
+= '{&#000000123;unsafe}}'
+= '{&#0000000000000123;unsafe}}'
+= '&lcub;&#x7b;unsafe}}'

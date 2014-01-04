@@ -6,3 +6,14 @@
 <div foo="{{safe}}" bar="<%= '{{unsafe}}' %>">
   {{safe}}
 </div>
+
+<%= '{&lcub;unsafe}}' %>
+<%= '{&lbrace;unsafe}}' %>
+<%= '{&#x7b;unsafe}}' %>
+<%= '{&#X7B;unsafe}}' %>
+<%= '{&#x000007b;unsafe}}' %>
+<%= '{&#x000000000007b;unsafe}}' %>
+<%= '{&#123;unsafe}}' %>
+<%= '{&#000000123;unsafe}}' %>
+<%= '{&#0000000000000123;unsafe}}' %>
+<%= '&lcub;&#x7b;unsafe}}' %>
