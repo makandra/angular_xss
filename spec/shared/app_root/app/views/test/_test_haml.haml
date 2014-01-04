@@ -1,3 +1,8 @@
 = "{{unsafe}}"
 #{'{{unsafe}}'}
 = "{{safe}}".html_safe
+
+{{safe}}
+
+%div{:foo => '{{safe}}'.html_safe, :bar => '{{unsafe}}'}
+  {{safe}}

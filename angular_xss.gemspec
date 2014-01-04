@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('activesupport')
-  s.add_dependency('haml')
+  s.add_dependency('haml', '>=3.1.5') # Haml below 3.1.5 does not escape HTML attributes by default. Do not use it!
 end

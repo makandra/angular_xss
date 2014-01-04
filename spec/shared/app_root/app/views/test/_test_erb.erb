@@ -1,2 +1,8 @@
 <%= "{{unsafe}}" %>
 <%= "{{safe}}".html_safe %>
+
+{{safe}}
+
+<div foo="{{safe}}" bar="<%= '{{unsafe}}' %>">
+  {{safe}}
+</div>
