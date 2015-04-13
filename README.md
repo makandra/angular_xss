@@ -8,6 +8,19 @@ This gem patches ERB/rails_xss and Haml so Angular interpolation symbols are aut
 **This is an unsatisfactory hack.** A better solution is very much desired, but is not possible without some changes in AngularJS. See the [related AngularJS issue](https://github.com/angular/angular.js/issues/5601).
 
 
+Disable escaping locally
+------------------------
+
+If you want to disable angular_xss in some part of your app, you can use
+
+```
+AngularXss.disable do
+  # no escaping here
+end
+# escaped again
+```
+
+
 Installation
 ------------
 

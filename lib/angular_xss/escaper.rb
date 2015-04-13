@@ -1,6 +1,14 @@
 module AngularXss
+
+  def self.disable(&block)
+    Escaper.disable(&block)
+  end
+
+
   class Escaper
-    
+
+    XSS_DISABLED_KEY = :_angular_xss_disabled
+
     #BRACE = [
     #  '\\{',
     #  '&lcub;',
@@ -11,7 +19,23 @@ module AngularXss
     #DOUBLE_BRACE_REGEXP = Regexp.new("(#{BRACE.join('|')})(#{BRACE.join('|')})", Regexp::IGNORECASE)
 
     def self.escape(string)
-      string.gsub('{{', ' { { ')
+      if disabled?
+        string
+      else
+        string.gsub('{{', ' { { ')
+      end
+    end
+
+    def self.disabled?
+      !!Thread.current[XSS_DISABLED_KEY]
+    end
+
+    def self.disable
+      old_disabled = Thread.current[XSS_DISABLED_KEY]
+      Thread.current[XSS_DISABLED_KEY] = true
+      yield
+    ensure
+      Thread.current[XSS_DISABLED_KEY] = old_disabled
     end
 
   end
