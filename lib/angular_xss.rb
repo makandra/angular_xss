@@ -3,3 +3,4 @@
 require 'angular_xss/escaper'
 require 'angular_xss/erb'
 require 'angular_xss/haml'
+require 'angular_xss/action_view'

@@ -4,13 +4,6 @@
 
 {{safe}}
 
-%div{:foo => '{{safe}}'.html_safe, :bar => '{{unsafe}}'}
-  {{safe}}
-
--# We can't support Angular interpolations in class and id attributes.
--# This is a limitation of Haml.
-%div{:class => '{{unsafe_id}}', :id => '{{unsafe_id}}'}
-
 = '{&lcub;unsafe}}'
 = '{&lbrace;unsafe}}'
 = '{&#x7b;unsafe}}'
@@ -21,3 +14,19 @@
 = '{&#000000123;unsafe}}'
 = '{&#0000000000000123;unsafe}}'
 = '&lcub;&#x7b;unsafe}}'
+
+-# HTML attributes in Haml work in different ways:
+-# 1. Under certain conditions, attributes are precompiled.
+-#    We never have to escape those because they can not contain user input.
+-# 2. Whenever there is a Ruby call on attributes, Haml will have to evaluate
+-#    them at runtime. Since they can contain user input, XSS logic applies.
+
+-# Precompiled:
+%div(foo='{{safe}}')
+%div{:class => '{{safe}}', :id => '{{safe}}'}
+
+-# Compiled at runtime:
+%div{:class => '{{unsafe}}', :id => '{{unsafe}}', :foo => rand}
+%div(bar="#{'{{unsafe}}'}")
+%div{:foo => '{{safe}}'.html_safe, :bar => '{{unsafe}}'}
+  {{safe}}
