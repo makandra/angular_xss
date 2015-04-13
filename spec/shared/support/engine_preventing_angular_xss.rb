@@ -40,4 +40,36 @@ shared_examples_for 'engine preventing Angular XSS' do
     html.should_not include(" { { safe}}")
   end
 
+  it 'does not escape Angular interpolation marks in a block where AngularXSS is disabled' do
+    result = nil
+    AngularXss.disable do
+      result = html
+    end
+
+    result.should include('{{unsafe}}')
+    result.should_not include(' { { unsafe}}')
+  end
+
+  it 'does escape Angular interpolation marks after the block where AngularXSS is disabled' do
+    AngularXss.disable do
+    end
+    result = html
+
+    result.should include(' { { unsafe}}')
+    result.should_not include('{{unsafe}}')
+  end
+
+  it 'is not confused by exceptions in disable blocks' do
+    class SomeException < StandardError; end
+
+    proc {
+      AngularXss.disable do
+        raise SomeException
+      end
+    }.should raise_error(SomeException)
+
+    html.should include(' { { unsafe}}')
+    html.should_not include('{{unsafe}}')
+  end
+
 end
