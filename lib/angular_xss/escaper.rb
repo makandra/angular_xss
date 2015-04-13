@@ -7,7 +7,7 @@ module AngularXss
 
   class Escaper
 
-    THREAD_LOCAL_NAME = :_angular_xss_disabled
+    XSS_DISABLED_KEY = :_angular_xss_disabled
 
     #BRACE = [
     #  '\\{',
@@ -27,15 +27,15 @@ module AngularXss
     end
 
     def self.disabled?
-      !!Thread.current[THREAD_LOCAL_NAME]
+      !!Thread.current[XSS_DISABLED_KEY]
     end
 
     def self.disable
-      old_disabled = Thread.current[THREAD_LOCAL_NAME]
-      Thread.current[THREAD_LOCAL_NAME] = true
+      old_disabled = Thread.current[XSS_DISABLED_KEY]
+      Thread.current[XSS_DISABLED_KEY] = true
       yield
     ensure
-      Thread.current[THREAD_LOCAL_NAME] = old_disabled
+      Thread.current[XSS_DISABLED_KEY] = old_disabled
     end
 
   end
