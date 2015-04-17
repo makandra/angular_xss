@@ -4,6 +4,9 @@
 
 {{safe}}
 
+= content_tag(:span, '{{unsafe}}')
+= content_tag(:span, '{{safe}}'.html_safe)
+
 = '{&lcub;unsafe}}'
 = '{&lbrace;unsafe}}'
 = '{&#x7b;unsafe}}'
