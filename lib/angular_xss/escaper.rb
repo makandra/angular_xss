@@ -19,6 +19,7 @@ module AngularXss
     #DOUBLE_BRACE_REGEXP = Regexp.new("(#{BRACE.join('|')})(#{BRACE.join('|')})", Regexp::IGNORECASE)
 
     def self.escape(string)
+      return unless string
       if disabled?
         string
       else
