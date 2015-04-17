@@ -1,7 +1,7 @@
 PATH
   remote: ../..
   specs:
-    angular_xss (0.2.2)
+    angular_xss (0.2.3)
       activesupport
       haml (>= 3.1.5)
 
