@@ -6,12 +6,12 @@ shared_examples_for 'engine preventing Angular XSS' do
 
   it 'escapes Angular interpolation marks in unsafe strings' do
     html.should_not include('{{unsafe}}')
-    html.should include(' { { unsafe}}')
+    html.should include('{{ $root.DOUBLE_LEFT_CURLY_BRACE }}unsafe}}')
   end
 
   it 'recognizes the many ways to express an opening curly brace in HTML' do
 
-    html.should include(" { { unsafe}}")
+    html.should include("{{ $root.DOUBLE_LEFT_CURLY_BRACE }}unsafe}}")
     html.should_not include("{{unsafe}}")
 
     braces = [
@@ -37,7 +37,7 @@ shared_examples_for 'engine preventing Angular XSS' do
 
   it 'does not escape Angular interpolation marks in safe strings' do
     html.should include("{{safe}}")
-    html.should_not include(" { { safe}}")
+    html.should_not include("{{ $root.DOUBLE_LEFT_CURLY_BRACE }}safe}}")
   end
 
   it 'does not escape Angular interpolation marks in a block where AngularXSS is disabled' do
@@ -47,7 +47,7 @@ shared_examples_for 'engine preventing Angular XSS' do
     end
 
     result.should include('{{unsafe}}')
-    result.should_not include(' { { unsafe}}')
+    result.should_not include('{{ $root.DOUBLE_LEFT_CURLY_BRACE }}unsafe}}')
   end
 
   it 'does escape Angular interpolation marks after the block where AngularXSS is disabled' do
@@ -55,7 +55,7 @@ shared_examples_for 'engine preventing Angular XSS' do
     end
     result = html
 
-    result.should include(' { { unsafe}}')
+    result.should include('{{ $root.DOUBLE_LEFT_CURLY_BRACE }}unsafe}}')
     result.should_not include('{{unsafe}}')
   end
 
@@ -68,7 +68,7 @@ shared_examples_for 'engine preventing Angular XSS' do
       end
     }.should raise_error(SomeException)
 
-    html.should include(' { { unsafe}}')
+    html.should include('{{ $root.DOUBLE_LEFT_CURLY_BRACE }}unsafe}}')
     html.should_not include('{{unsafe}}')
   end
 
