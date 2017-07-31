@@ -32,9 +32,17 @@ Installation
 
 2. Run `bundle install`.
 
-3. Run your test suite to find the places that broke.
+3. Add this to your Angular code (replacing "myApp" of course):
 
-4. Mark any string that is allowed to contain Angular expressions as `#html_safe`.
+   ```
+   angular.module('myApp', []).run(['$rootScope', function($rootScope) {
+     $rootScope.DOUBLE_LEFT_CURLY_BRACE = '{{';
+   }]);
+   ```
+
+4. Run your test suite to find the places that broke.
+
+5. Mark any string that is allowed to contain Angular expressions as `#html_safe`.
 
 
 Known limitations
