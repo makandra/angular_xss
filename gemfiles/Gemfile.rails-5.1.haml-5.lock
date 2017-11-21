@@ -52,6 +52,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rake (12.3.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -79,6 +80,7 @@ DEPENDENCIES
   angular_xss!
   gemika
   haml (~> 5)
+  rake
   rspec
 
 BUNDLED WITH

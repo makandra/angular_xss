@@ -84,6 +84,7 @@ DEPENDENCIES
   gemika
   haml (= 4.0.2)
   railties (~> 3.2)
+  rake
   rspec
 
 BUNDLED WITH
