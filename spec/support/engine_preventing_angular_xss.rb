@@ -74,4 +74,10 @@ shared_examples_for 'engine preventing Angular XSS' do |partial:|
     html.should_not include('{{unsafe}}')
   end
 
+  it 'does not escape twice' do
+    escaped = AngularXss::Escaper.escape('{{')
+    double_escaped = AngularXss::Escaper.escape(escaped)
+    html.should_not include(double_escaped)
+  end
+
 end
