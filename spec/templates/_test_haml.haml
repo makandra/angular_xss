@@ -29,7 +29,9 @@
 %div{:class => '{{safe}}', :id => '{{safe}}'}
 
 -# Compiled at runtime:
-%div{:class => '{{unsafe}}', :id => '{{unsafe}}', :foo => rand}
-%div(bar="#{'{{unsafe}}'}")
-%div{:foo => '{{safe}}'.html_safe, :bar => '{{unsafe}}'}
+- unsafe = '{{unsafe}}'
+- safe = '{{safe}}'.html_safe
+%div{:class => unsafe, :id => unsafe}
+%div(bar="#{unsafe}")
+  %div{:foo => safe, :bar => unsafe}
   {{safe}}
