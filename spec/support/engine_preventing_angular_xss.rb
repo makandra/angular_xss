@@ -1,6 +1,8 @@
-shared_examples_for 'engine preventing Angular XSS' do
+shared_examples_for 'engine preventing Angular XSS' do |partial:|
 
-  let(:engine) { respond_to?(:view) ? view : template }
+  let(:path_set) { ActionView::PathSet.new([TEMPLATE_ROOT]) }
+
+  let(:engine) { ActionView::Base.new(path_set) }
 
   let(:html) { engine.render(partial) }
 
