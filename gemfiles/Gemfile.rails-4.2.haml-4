@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'sqlite3'
 gem 'actionpack', '~>4.2'
 gem 'rspec'
 gem 'haml', '<5'
-gem 'angular_xss', :path => '../..'
+gem 'angular_xss', :path => '..'
+gem 'gemika'

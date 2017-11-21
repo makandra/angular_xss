@@ -1,15 +1,21 @@
 language: ruby
+sudo: false
 rvm:
-  - "1.8.7"
-  - "1.9.3"
   - "2.1.2"
-services:
-  - mysql
-script: rake travis:run
+  - "2.3.5"
+gemfile:
+  - gemfiles/Gemfile.rails-3.2
+  - gemfiles/Gemfile.rails-4.2.haml-4
 notifications:
   email:
     - fail@makandra.de
+cache: bundler
 branches:
   only:
     - master
+install:
+  # Replace default Travis CI bundler script with a version that doesn't
+  # explode when lockfile doesn't match recently bumped version
+  - bundle install --no-deployment --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
+script: bundle exec rake current_rspec
