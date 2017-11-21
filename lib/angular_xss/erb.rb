@@ -12,7 +12,8 @@ ERB::Util.module_eval do
       end
     end
 
-    alias_method_chain :unwrapped_html_escape, :escaping_angular_expressions
+    alias_method :unwrapped_html_escape_without_escaping_angular_expressions, :unwrapped_html_escape
+    alias_method :unwrapped_html_escape, :unwrapped_html_escape_with_escaping_angular_expressions
 
     singleton_class.send(:remove_method, :unwrapped_html_escape)
     module_function :unwrapped_html_escape

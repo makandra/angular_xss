@@ -8,6 +8,7 @@ ActionView::Template.class_eval do
     end
   end
 
-  alias_method_chain :compile, :angular_xss
+  alias_method :compile_without_angular_xss, :compile
+  alias_method :compile, :compile_with_angular_xss
 
 end

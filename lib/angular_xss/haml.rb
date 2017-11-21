@@ -12,7 +12,8 @@ if Haml::VERSION < '5'
       end
     end
 
-    alias_method_chain :html_escape, :escaping_angular_expressions
+    alias_method :html_escape_without_escaping_angular_expressions, :html_escape
+    alias_method :html_escape, :html_escape_with_escaping_angular_expressions
 
   end
 end

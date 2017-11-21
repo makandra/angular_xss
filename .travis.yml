@@ -7,6 +7,8 @@ gemfile:
   - gemfiles/Gemfile.rails-3.2
   - gemfiles/Gemfile.rails-4.2.haml-4
   - gemfiles/Gemfile.rails-4.2.haml-5
+  - gemfiles/Gemfile.rails-5.1.haml-4
+  - gemfiles/Gemfile.rails-5.1.haml-5
 notifications:
   email:
     - fail@makandra.de

@@ -4,15 +4,16 @@ ActiveSupport::SafeBuffer.class_eval do
 
     private
 
-    def html_escape_interpolated_argument_with_rails_xss(arg)
+    def html_escape_interpolated_argument_with_angular_xss(arg)
       if arg.html_safe?
         arg
       else
-        html_escape_interpolated_argument_without_rails_xss(AngularXss::Escaper.escape(arg))
+        html_escape_interpolated_argument_without_angular_xss(AngularXss::Escaper.escape(arg))
       end
     end
 
-    alias_method_chain :html_escape_interpolated_argument, :rails_xss
+    alias_method :html_escape_interpolated_argument_without_angular_xss, :html_escape_interpolated_argument
+    alias_method :html_escape_interpolated_argument, :html_escape_interpolated_argument_with_angular_xss
 
   end
 
