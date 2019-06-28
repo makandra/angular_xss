@@ -15,10 +15,6 @@ gemfile:
 
 dist: trusty
 
-notifications:
-  email:
-    - fail@makandra.de
-
 cache: bundler
 
 install:
