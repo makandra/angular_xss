@@ -1,8 +1,12 @@
 shared_examples_for 'engine preventing Angular XSS' do |partial:|
 
-  let(:path_set) { ActionView::PathSet.new([TEMPLATE_ROOT]) }
+  let(:path_set) { ActionView::LookupContext.new([TEMPLATE_ROOT]) }
 
-  let(:engine) { ActionView::Base.new(path_set) }
+  if defined?(ActionView::VERSION) && ActionView::VERSION::MAJOR >= 6
+    let(:engine) { ActionView::Base.with_empty_template_cache.new(path_set, {}, nil) }
+  else
+    let(:engine) { ActionView::Base.new(path_set) }
+  end
 
   let(:html) { engine.render(partial) }
 

@@ -5,6 +5,8 @@ sudo: false
 rvm:
   - "2.1.2"
   - "2.3.5"
+  - "2.7.2"
+  - "3.0.1"
 
 gemfile:
   - Gemfile.rails-3.2
@@ -12,6 +14,7 @@ gemfile:
   - Gemfile.rails-4.2.haml-5
   - Gemfile.rails-5.1.haml-4
   - Gemfile.rails-5.1.haml-5
+  - Gemfile.rails-6.1.haml-5
 
 dist: trusty
 
@@ -30,3 +33,19 @@ matrix:
       rvm: "2.1.2"
     - gemfile: Gemfile.rails-5.1.haml-5
       rvm: "2.1.2"
+    - gemfile: Gemfile.rails-6.1.haml-5
+      rvm: "2.1.2"
+    - gemfile: Gemfile.rails-6.1.haml-5
+      rvm: "2.3.5"
+    - gemfile: Gemfile.rails-3.2
+      rvm: "2.7.2"
+    - gemfile: Gemfile.rails-4.2.haml-4
+      rvm: "2.7.2"
+    - gemfile: Gemfile.rails-4.2.haml-5
+      rvm: "2.7.2"
+    - gemfile: Gemfile.rails-3.2
+      rvm: "3.0.1"
+    - gemfile: Gemfile.rails-4.2.haml-4
+      rvm: "3.0.1"
+    - gemfile: Gemfile.rails-4.2.haml-5
+      rvm: "3.0.1"
