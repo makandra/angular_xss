@@ -6,6 +6,7 @@ rvm:
   - "2.1.2"
   - "2.3.5"
   - "2.7.2"
+  - "3.0.1"
 
 gemfile:
   - Gemfile.rails-3.2
@@ -42,3 +43,9 @@ matrix:
       rvm: "2.7.2"
     - gemfile: Gemfile.rails-4.2.haml-5
       rvm: "2.7.2"
+    - gemfile: Gemfile.rails-3.2
+      rvm: "3.0.1"
+    - gemfile: Gemfile.rails-4.2.haml-4
+      rvm: "3.0.1"
+    - gemfile: Gemfile.rails-4.2.haml-5
+      rvm: "3.0.1"
