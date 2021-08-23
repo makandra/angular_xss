@@ -7,11 +7,16 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ### Compatible changes
 
+### Breaking changes
+
+
+## 0.4.0 2021-08-23
+
+### Compatible changes
+
 - Add compatibility with Rails 6
 - Add compatibility with Haml > 5.2
 - Add compatibility with Ruby 2.7 and Ruby 3
-
-### Breaking changes
 
 ## 0.3.1 2017-11-21
 
