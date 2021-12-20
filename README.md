@@ -57,6 +57,7 @@ Development
 
 - Fork the repository.
 - Push your changes with specs. There is a Rails 3 test application in `spec/app_root` if you need to test integration with a live Rails app.
+- You may run single tests with a specified Rails version via `BUNDLE_GEMFILE=Gemfile.rails-7.0.haml-5 bundle exec rspec ./spec/angular_xss`
 - Send a pull request.
 
 
