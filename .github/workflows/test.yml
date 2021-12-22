@@ -14,16 +14,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - ruby: 2.3.5
-          gemfile: Gemfile.rails-3.2
-        - ruby: 2.3.5
-          gemfile: Gemfile.rails-4.2.haml-4
-        - ruby: 2.3.5
-          gemfile: Gemfile.rails-4.2.haml-5
-        - ruby: 2.3.5
-          gemfile: Gemfile.rails-5.1.haml-4
-        - ruby: 2.3.5
-          gemfile: Gemfile.rails-5.1.haml-5
         - ruby: 2.7.2
           gemfile: Gemfile.rails-5.1.haml-4
         - ruby: 2.7.2
