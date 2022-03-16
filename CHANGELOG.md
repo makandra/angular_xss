@@ -10,6 +10,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Breaking changes
 
 
+## 0.4.1 2022-03-16
+
+### Compatible changes
+
+- Add compatibility with Rails 7
+- Require MFA for RubyGems
+
 ## 0.4.0 2021-08-23
 
 ### Compatible changes
@@ -69,4 +76,3 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ### Compatible changes
 
 - First version.
-
