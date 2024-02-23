@@ -32,7 +32,7 @@ GEM
     crass (1.0.6)
     diff-lcs (1.4.4)
     erubi (1.10.0)
-    gemika (0.6.0)
+    gemika (0.8.3)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -81,7 +81,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack (~> 6.1)
   angular_xss!
-  gemika
+  gemika (>= 0.8.3)
   haml (~> 5)
   rake
   rspec

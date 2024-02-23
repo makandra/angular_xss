@@ -31,7 +31,7 @@ GEM
     crass (1.0.3)
     diff-lcs (1.3)
     erubi (1.7.0)
-    gemika (0.6.1)
+    gemika (0.8.3)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -40,10 +40,12 @@ GEM
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.5.3)
     minitest (5.10.3)
-    nokogiri (1.8.1)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    racc (1.7.3)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -78,7 +80,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack (~> 5.1)
   angular_xss!
-  gemika
+  gemika (>= 0.8.3)
   haml (~> 5)
   rake
   rspec

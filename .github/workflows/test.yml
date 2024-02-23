@@ -34,13 +34,13 @@ jobs:
         - ruby: 2.7.2
           gemfile: Gemfile.rails-7.0.haml-5
 
-        - ruby: 3.0.1
+        - ruby: 3.2.3
           gemfile: Gemfile.rails-5.1.haml-4
-        - ruby: 3.0.1
+        - ruby: 3.2.3
           gemfile: Gemfile.rails-5.1.haml-5
-        - ruby: 3.0.1
+        - ruby: 3.2.3
           gemfile: Gemfile.rails-6.1.haml-5
-        - ruby: 3.0.1
+        - ruby: 3.2.3
           gemfile: Gemfile.rails-7.0.haml-5
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
