@@ -1,33 +1,25 @@
-# Use module_eval so we crash when ERB::Util has not yet been loaded.
-ERB::Util.module_eval do
-
-  if private_method_defined? :unwrapped_html_escape # Rails 4.2+
-
-    def unwrapped_html_escape_with_escaping_angular_expressions(s)
-      s = s.to_s
-      if s.html_safe?
-        s
-      else
-        unwrapped_html_escape_without_escaping_angular_expressions(AngularXss::Escaper.escape(s))
-      end
+if ERB::Util.private_method_defined? :unwrapped_html_escape
+  # Rails 4.2+
+  # https://github.com/rails/rails/blob/main/activesupport/lib/active_support/core_ext/erb/util.rb
+  module ERBUtilExt
+    def html_escape_once(s)
+      super(AngularXss::Escaper.escape_if_unsafe(s))
     end
 
-    alias_method :unwrapped_html_escape_without_escaping_angular_expressions, :unwrapped_html_escape
-    alias_method :unwrapped_html_escape, :unwrapped_html_escape_with_escaping_angular_expressions
+    def unwrapped_html_escape(s)
+      super(AngularXss::Escaper.escape_if_unsafe(s))
+    end
+    # Note that html_escape() and h() are passively fixed as they are calling the two methods above
+  end
+  ERB::Util.prepend ERBUtilExt
+  ERB::Util.singleton_class.prepend ERBUtilExt
 
-    singleton_class.send(:remove_method, :unwrapped_html_escape)
-    module_function :unwrapped_html_escape
-    module_function :unwrapped_html_escape_without_escaping_angular_expressions
-
-  else # Rails < 4.2
+else
+  ERB::Util.module_eval do
+    # Rails < 4.2
 
     def html_escape_with_escaping_angular_expressions(s)
-      s = s.to_s
-      if s.html_safe?
-        s
-      else
-        html_escape_without_escaping_angular_expressions(AngularXss::Escaper.escape(s))
-      end
+      html_escape_without_escaping_angular_expressions(AngularXss::Escaper.escape_if_unsafe(s))
     end
 
     alias_method_chain :html_escape, :escaping_angular_expressions
@@ -41,7 +33,5 @@ ERB::Util.module_eval do
     singleton_class.send(:remove_method, :html_escape)
     module_function :html_escape
     module_function :html_escape_without_escaping_angular_expressions
-
   end
-
 end

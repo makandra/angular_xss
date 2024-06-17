@@ -27,6 +27,14 @@ module AngularXss
       end
     end
 
+    def self.escape_if_unsafe(string)
+      if string.nil? || string.to_s.html_safe?
+        string
+      else
+        escape(string.to_s)
+      end
+    end
+
     def self.disabled?
       !!Thread.current[XSS_DISABLED_KEY]
     end

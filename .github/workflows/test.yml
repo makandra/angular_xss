@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
         - ruby: 2.5.9
-          gemfile: Gemfile.rails-3.2
+          gemfile: Gemfile.rails-3.2.haml-4
         - ruby: 2.5.9
           gemfile: Gemfile.rails-4.2.haml-4
         - ruby: 2.5.9
@@ -42,6 +42,10 @@ jobs:
           gemfile: Gemfile.rails-6.1.haml-5
         - ruby: 3.2.3
           gemfile: Gemfile.rails-7.0.haml-5
+        - ruby: 3.2.3
+          gemfile: Gemfile.rails-7.1.haml-5
+        - ruby: 3.2.3
+          gemfile: Gemfile.rails-7.1.haml-6
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
     steps:

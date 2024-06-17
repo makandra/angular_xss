@@ -1,14 +1,23 @@
-<%= "{{unsafe}}" %>
-<%= "{{safe}}".html_safe %>
+<%- unsafe_string = '{{unsafe}}' %>
+<%- safe_string = '{{safe}}'.html_safe %>
+
+<%= unsafe_string %>
+<%= safe_string %>
+
+<%= ''.html_safe + unsafe_string %>
+<%= ''.html_safe + safe_string %>
+
+<%= ''.html_safe << unsafe_string %>
+<%= ''.html_safe << safe_string %>
 
 {{safe}}
 
-<div foo="{{safe}}" bar="<%= '{{unsafe}}' %>">
+<div foo="{{safe}}" bar="<%= unsafe_string %>">
   {{safe}}
 </div>
 
-<%= content_tag(:span, '{{unsafe}}') %>
-<%= content_tag(:span, '{{safe}}'.html_safe) %>
+<%= content_tag(:span, unsafe_string) %>
+<%= content_tag(:span, safe_string) %>
 
 <%= '{&lcub;unsafe}}' %>
 <%= '{&lbrace;unsafe}}' %>

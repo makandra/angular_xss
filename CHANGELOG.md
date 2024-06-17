@@ -6,6 +6,14 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 ## Unreleased
 
 ### Compatible changes
+* Add compatibility with Rails 7.1
+* Add compatibility with HAML 6
+  * NOTE: Don't use HAML 6.0.0. AngularXSS relies on a patch [introduced in 6.0.1](https://github.com/haml/haml/blob/main/CHANGELOG.md#601). Anything newer should be fine - the gem is currently tested against HAML 6.3
+* Refactor our patches to use `Module#prepend` instead of `Module#module_eval`
+* Refactor gem version comparisons to use `Gem::Version` instances
+* Refactor specs to use the `expect` syntax
+* Add missing unit tests for patched methods
+* Improve test coverage for more interpolation scenarios in ERB and HAML
 
 ### Breaking changes
 

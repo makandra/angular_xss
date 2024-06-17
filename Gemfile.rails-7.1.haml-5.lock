@@ -1,0 +1,105 @@
+PATH
+  remote: .
+  specs:
+    angular_xss (0.4.1)
+      activesupport
+      haml (>= 3.1.5)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionpack (7.1.3.4)
+      actionview (= 7.1.3.4)
+      activesupport (= 7.1.3.4)
+      nokogiri (>= 1.8.5)
+      racc
+      rack (>= 2.2.4)
+      rack-session (>= 1.0.1)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.2)
+      rails-html-sanitizer (~> 1.6)
+    actionview (7.1.3.4)
+      activesupport (= 7.1.3.4)
+      builder (~> 3.1)
+      erubi (~> 1.11)
+      rails-dom-testing (~> 2.2)
+      rails-html-sanitizer (~> 1.6)
+    activesupport (7.1.3.4)
+      base64
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      mutex_m
+      tzinfo (~> 2.0)
+    base64 (0.2.0)
+    bigdecimal (3.1.8)
+    builder (3.3.0)
+    byebug (11.1.3)
+    concurrent-ruby (1.3.3)
+    connection_pool (2.4.1)
+    crass (1.0.6)
+    diff-lcs (1.5.1)
+    drb (2.2.1)
+    erubi (1.13.0)
+    gemika (0.8.3)
+    haml (5.2.2)
+      temple (>= 0.8.0)
+      tilt
+    i18n (1.14.5)
+      concurrent-ruby (~> 1.0)
+    loofah (2.22.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
+    minitest (5.23.1)
+    mutex_m (0.2.0)
+    nokogiri (1.16.6-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.8.0)
+    rack (3.1.3)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
+    rack-test (2.1.0)
+      rack (>= 1.3)
+    rails-dom-testing (2.2.0)
+      activesupport (>= 5.0.0)
+      minitest
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.6.0)
+      loofah (~> 2.21)
+      nokogiri (~> 1.14)
+    rake (13.2.1)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    temple (0.10.3)
+    tilt (2.3.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  actionpack (~> 7.1)
+  angular_xss!
+  byebug
+  gemika (>= 0.8.3)
+  haml (~> 5)
+  rake
+  rspec
+
+BUNDLED WITH
+   2.5.13
