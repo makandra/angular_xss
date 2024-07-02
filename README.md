@@ -7,6 +7,12 @@ This gem patches ERB/rails_xss and Haml so Angular interpolation symbols are aut
 
 **This is an unsatisfactory hack.** A better solution is very much desired, but is not possible without some changes in AngularJS. See the [related AngularJS issue](https://github.com/angular/angular.js/issues/5601).
 
+🚧 Notice: unmaintained gem
+------------------
+
+We are no longer actively maintaining this gem.
+
+The `1.0` release added support for HAML 6 and Rails 7.1, so the gem will at least support Rails 3.2 - 7.1 and HAML 4 - 6. `angular_xss` might still work for future versions HAML and Rails, but we won't actively ensure it does.
 
 Disable escaping locally
 ------------------------
